@@ -8,6 +8,9 @@ import java.util.List;
  */
 
 @Entity
+@NamedQuery(query="select distinct avg(m.valor) from Movimentacao m where m.conta=:pConta "
+        + "and m.tipoMovimentacao=:pTipo" +
+        " group by m.data", name="MediasPorDiaETipo")
 public class Conta {
 
     @Id
